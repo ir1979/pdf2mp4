@@ -121,7 +121,7 @@ for page_counter in tqdm.tqdm(range(doc.pageCount)):
     if (page_counter % part_size) == part_size-1 or page_counter == doc.pageCount-1:
         # cmd_str = f'ffmpeg -y -r 3 -i {tmp_folder}/{subfolder}/{fname_without_extension}-%06d.png -c:v libx264 -r 3 {fname_without_extension}_{page_counter//part_size}.mp4'
         # cmd_str = f'ffmpeg -y -r 24 -i {tmp_folder}/{subfolder}/{fname_without_extension}-%06d.png -vf crop=ceil(iw/2)*2:ceil(ih/2)*2,scale=-1:1080 -vcodec libx264 -crf 18 -pix_fmt yuv420p -r 24 {fname_without_extension}_{page_counter//part_size}.mp4'
-        cmd_str = f'ffmpeg -y -r 24 -i {tmp_folder}/{subfolder}/{fname_without_extension}-%06d.png -vf scale=1440:900 -vcodec libx264 -crf 0 -pix_fmt yuv420p -r 24 {fname_without_extension}_{page_counter//part_size}.mp4'
+        cmd_str = f'ffmpeg -y -r 24 -i {tmp_folder}/{subfolder}/{fname_without_extension}-%06d.png -vf scale=1440:900 -vcodec libx264 -crf 18 -pix_fmt yuv420p -r 24 {fname_without_extension}_{page_counter//part_size}.mp4'
         cmd_lst = cmd_str.split(' ')
         print(cmd_lst)
         # subprocess.Popen(cmd_lst, close_fds=True)
